@@ -1,6 +1,6 @@
-from login import Authentication
-from httpClient import Requests
-from httpClient import HTTPConnection
+from .login import Authentication
+from .httpClient import Requests
+from .httpClient import HTTPConnection
 
 
 class SalesforceAPI(object):

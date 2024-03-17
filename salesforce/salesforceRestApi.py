@@ -1,9 +1,9 @@
-from login import LoginWithRestAPI
-from urlResources import ResourcesName
-from salesforceApi import SalesforceAPI
-from exception import AuthenticationFailed
-from sObject import SObject
-import utils
+from .login import LoginWithRestAPI
+from .urlResources import ResourcesName
+from .salesforceApi import SalesforceAPI
+from .exception import AuthenticationFailed
+from .sObject import SObject
+from . import utils
 import json
 
 
@@ -12,7 +12,7 @@ class SalesforceRestAPI(SalesforceAPI):
                  httplib,
                  url_resources,
                  auth=None):
-        super(SalesforceRestAPI, self).__init__(url_resources, httplib, auth)
+        super().__init__(url_resources, httplib, auth)
 
         self.__login_api = None
 
@@ -139,7 +139,7 @@ class SalesforceRestAPI(SalesforceAPI):
 
 class RestSObject(SObject):
     def __init__(self, name, httplib, auth, url_resources):
-        super(RestSObject, self).__init__(httplib, auth, url_resources)
+        super().__init__(httplib, auth, url_resources)
 
         self.__name = name
 

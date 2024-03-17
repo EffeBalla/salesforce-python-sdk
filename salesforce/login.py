@@ -1,13 +1,13 @@
-from urlparse import urlparse
-from exception import AuthenticationFailed
-import urllib
-import utils
+from urllib.parse import urlparse
+from .exception import AuthenticationFailed
+import urllib.request, urllib.parse, urllib.error
+from . import utils
 import xml.dom.minidom
 
 
 class Authentication(object):
     def __init__(self, access_token='', instance_url=''):
-        super(Authentication, self).__init__()
+        super().__init__()
 
         self.__access_token = access_token
         self.__instance_url = instance_url
@@ -26,7 +26,7 @@ class Authentication(object):
 
 class Login(object):
     def __init__(self, httplib, url_resources):
-        super(Login, self).__init__()
+        super().__init__()
 
         self.httplib = httplib
         self.url_resources = url_resources
@@ -38,7 +38,7 @@ class LoginWithRestAPI(Login):
     AUTH_PATH = '/services/oauth2/authorize'
 
     def __init__(self, httplib, url_resources, **kwargs):
-        super(LoginWithRestAPI, self).__init__(httplib, url_resources)
+        super().__init__(httplib, url_resources)
 
         self.__validate_kwargs(**kwargs)
 
@@ -61,7 +61,7 @@ class LoginWithRestAPI(Login):
         endpoint_url = self.__get_auth_endpoint()
         params = self.__get_server_or_user_params()
 
-        return endpoint_url + '?' + urllib.urlencode(params)
+        return endpoint_url + '?' + urllib.parse.urlencode(params)
 
     def authenticate(self, **kwargs):
         headers = {'content-type': 'application/x-www-form-urlencoded'}
@@ -147,7 +147,7 @@ class LoginWithSoapAPI(Login):
     AUTH_SITE = "https://{domain}.salesforce.com/services/Soap/u/{version}"
 
     def __init__(self, httplib, url_resources, **kwargs):
-        super(LoginWithSoapAPI, self).__init__(httplib, url_resources)
+        super().__init__(httplib, url_resources)
 
         self.__validate_kwargs(**kwargs)
 

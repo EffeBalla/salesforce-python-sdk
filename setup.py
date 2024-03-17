@@ -2,7 +2,7 @@ import sys
 from setuptools import setup
 
 INSTALL_REQUIRES = ['requests']
-assert sys.version_info >= (2, 6), "We only support Python 2.6+"
+#assert sys.version_info >= (2, 6), "We only support Python 2.6+"
 
 with open('LICENSE.rst') as f:
     license_text = f.read()

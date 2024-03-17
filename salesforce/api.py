@@ -1,10 +1,10 @@
-from salesforceSoapApi import SalesforceSoapAPI
-from salesforceRestApi import SalesforceRestAPI
-from version import Version
-from httpClient import HTTPConnection
-from httpClient import Requests
-from urlResources import RestUrlResources, SoapUrlResources
-import utils
+from .salesforceSoapApi import SalesforceSoapAPI
+from .salesforceRestApi import SalesforceRestAPI
+from .version import Version
+from .httpClient import HTTPConnection
+from .httpClient import Requests
+from .urlResources import RestUrlResources, SoapUrlResources
+from . import utils
 
 
 class Salesforce(object):

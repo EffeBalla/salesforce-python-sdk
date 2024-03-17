@@ -1,6 +1,6 @@
 class SObject(object):
     def __init__(self, httplib, auth, url_resources):
-        super(SObject, self).__init__()
+        #super(SObject, self).__init__()
 
         self.__httplib = httplib
         self.__auth = auth

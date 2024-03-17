@@ -1,5 +1,5 @@
 import requests
-from exception import RequestFailed, AuthenticationFailed
+from .exception import RequestFailed, AuthenticationFailed
 
 
 def json_content_headers(access_token):
@@ -96,7 +96,7 @@ def get_soap_create_body(sobject, data):
     for item in data:
         create_body += '<urn:sObjects xsi:type="urn1:{0}"> \n'.format(sobject)
 
-        for key, value in item.iteritems():
+        for key, value in item.items():
             create_body += '<{0}>{1}</{0}> \n'.format(key, value)
 
         create_body += '</urn:sObjects> \n'
@@ -123,7 +123,7 @@ def get_soap_update_body(sobject, data):
         update_body += '<urn:sObjects xsi:type="urn1:{0}"> \n'.format(sobject)
         update_body += '<urn:Id>{0}</urn:Id>'.format(item[0])
 
-        for key, value in item[1].iteritems():
+        for key, value in item[1].items():
             update_body += '<urn:{0}>{1}</urn:{0}> \n'.format(key, value)
 
         update_body += '</urn:sObjects> \n'
@@ -140,7 +140,7 @@ def verify_response(response):
 
 
 def send_request(method, httplib, url, headers, **kwargs):
-    print method + ": Sending request to " + url + "\n"
+    print(method + ": Sending request to " + url + "\n")
 
     response = httplib(method,
                        url,
